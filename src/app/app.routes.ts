@@ -3,6 +3,7 @@ import { ManagCustomerComponent } from './manag-customer/manag-customer.componen
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { AdminDashbordComponent } from './admin-dashbord/admin-dashbord.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { ManageItemComponent } from './manage-item/manage-item.component';
 
 export const routes: Routes = [
     {
@@ -20,5 +21,9 @@ export const routes: Routes = [
     {
         path: "add-item",
         component: AddItemComponent
+    },
+    {
+        path: "manage-item",
+        component: ManageItemComponent
     }
 ];

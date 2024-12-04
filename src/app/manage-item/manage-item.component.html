@@ -1,0 +1,96 @@
+<div class="page-header p-2">
+    <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Admin UI</h1>
+</div>
+<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+    <button type="button" class="btn btn-info btn-lg px-4 gap-3"(click)="viewHome()">Home</button>
+    <button type="button" class="btn btn-primary btn-lg px-4 gap-3"(click)="viewaddCustomer()">Add Customer</button>
+    <button type="button" class="btn btn-info btn-lg px-4 gap-3" (click)="viewaddItems()">Add Items</button>
+    <button type="button" class="btn btn-info btn-lg px-4 gap-3">Rental</button>
+
+  </div>
+
+  <ul class="nav nav-tabs nav-fill" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#" routerLink="/add-item" role="tab" aria-controls="projects"
+            aria-selected="true">Add Item</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#" routerLink="manage-itam" role="tab"
+            aria-controls="members" aria-selected="false">Manage Item</a>
+    </li>
+</ul>
+
+<div class="container mt-5 bg-dark-subtle">
+    <table class="table text-center">
+        <tr>
+            <th scope="col">Count</th>
+            <th scope="col">Item ID</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Rental Per Day</th>
+            <th scope="col">Find Per Day</th>
+            <th scope="col">Availability</th>
+        </tr>
+        <tr *ngFor="let item of itemList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{item.itemID}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.rentalPerDay}}</td>
+            <td>{{item.findPerDay}}</td>
+            <td>{{item.availability}}</td>
+            <td><button class="btn btn-danger" (click)="deleteItemById(item.itemID)"><i
+                        class="bi bi-trash-fill"></i></button></td>
+            <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal"
+                    (click)="updateItem(item)"><i class="bi bi-pencil-square"></i></button></td>
+        </tr>
+    </table>
+</div>
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"
+                    style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                    Update Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Item ID</label>
+                    <input type="text" class="form-control" [(ngModel)]="itemTemp.itemID" id="recipient-name"
+                        disabled="true">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Item Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="itemTemp.name" id="recipient-name">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Rental Per Day</label>
+                    <textarea class="form-control" [(ngModel)]="itemTemp.rentalPerDay" id="recipient-name"
+                        rows="1"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Find Per Day</label>
+                    <input type="text" class="form-control" [(ngModel)]="itemTemp.findPerDay" id="recipient-name">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Availability</label>
+                    <select class="form-select" [(ngModel)]="itemTemp.availability" required>
+                        <option value="Available">Available</option>
+                        <option value="Not Available">Not Available</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Close</button>
+                <button type="button" class="btn btn-primary" (click)="saveItem()" data-bs-dismiss="modal"
+                    style="background-color: goldenrod; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update
+                    Item</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+   
