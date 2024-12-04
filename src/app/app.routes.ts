@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { ManagCustomerComponent } from './manag-customer/manag-customer.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { AdminDashbordComponent } from './admin-dashbord/admin-dashbord.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 export const routes: Routes = [
     {
@@ -15,5 +16,9 @@ export const routes: Routes = [
     {
         path: "admin-dashbord",
         component: AdminDashbordComponent
+    },
+    {
+        path: "add-item",
+        component: AddItemComponent
     }
 ];

@@ -2,9 +2,10 @@
     <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Admin UI</h1>
 </div>
 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Add Customer</button>
-    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Add Items</button>
-    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Add Customer</button>
+    <button type="button" class="btn btn-info btn-lg px-4 gap-3"(click)="viewHome()">Home</button>
+    <button type="button" class="btn btn-primary btn-lg px-4 gap-3"(click)="viewaddCustomer()">Add Customer</button>
+    <button type="button" class="btn btn-info btn-lg px-4 gap-3" (click)="viewaddItems()">Add Items</button>
+    <button type="button" class="btn btn-info btn-lg px-4 gap-3">Rental</button>
 
   </div>
 
@@ -15,7 +16,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#" role="tab" aria-controls="page"
-            aria-selected="false">Manage Customer</a>
+            aria-selected="false" routerLink="/manage-customer">Manage Customer</a>
     </li>
 </ul>
 
@@ -34,7 +35,7 @@
             <input type="text" class="form-control" [(ngModel)]="customer.contact" required>
         </div>
        
-        <button class="btn w-100 py-2" type="submit" style="background-color: lightblue; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" (click)="addCustomer()">Add product</button>
+        <button class="btn w-100 py-2" type="submit" style="background-color: lightblue; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" (click)="addCustomer()">Add Customer</button>
     </div>
 </div>
 

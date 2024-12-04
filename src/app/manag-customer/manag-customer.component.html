@@ -1,1 +1,25 @@
-<p>manag-customer works!</p>
+<div class="page-header p-2">
+    <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Admin UI</h1>
+</div>
+<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+    <button type="button" class="btn btn-info btn-lg px-4 gap-3"(click)="viewHome()">Home</button>
+    <button type="button" class="btn btn-primary btn-lg px-4 gap-3"(click)="viewaddCustomer()">Add Customer</button>
+    <button type="button" class="btn btn-info btn-lg px-4 gap-3" (click)="viewaddItems()">Add Items</button>
+    <button type="button" class="btn btn-info btn-lg px-4 gap-3">Rental</button>
+
+  </div>
+
+  <ul class="nav nav-tabs nav-fill" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#" routerLink="/admin-dashbord" role="tab" aria-controls="projects"
+            aria-selected="true">Add Customer</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#" routerLink="manage-product" role="tab"
+            aria-controls="members" aria-selected="false">Manage Customer</a>
+    </li>
+</ul>
+
+
+
+   
