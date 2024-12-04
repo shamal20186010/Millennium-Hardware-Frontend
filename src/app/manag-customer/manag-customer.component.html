@@ -20,6 +20,68 @@
     </li>
 </ul>
 
+<div class="container mt-5 bg-dark-subtle">
+    <table class="table text-center">
+        <tr>
+            <th scope="col">Count</th>
+            <th scope="col">Customer ID</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Customer City</th>
+            <th scope="col">Customer Co</th>
+        </tr>
+        <tr *ngFor="let customer of customerList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{customer.customerID}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.city}}</td>
+            <td>{{customer.contact}}</td>
+            <td><button class="btn btn-danger" (click)="deleteCustomertById(customer.customerID)"><i
+                        class="bi bi-trash-fill"></i></button></td>
+            <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal"
+                    (click)="updateCustomer(customer)"><i class="bi bi-pencil-square"></i></button></td>
+        </tr>
+    </table>
+</div>
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"
+                    style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                    Update Customer</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Customer ID</label>
+                    <input type="text" class="form-control" [(ngModel)]="customerTemp.customerID" id="recipient-name"
+                        disabled="true">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Customer Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="customerTemp.name" id="recipient-name">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Customer City</label>
+                    <textarea class="form-control" [(ngModel)]="customerTemp.city" id="recipient-name"
+                        rows="1"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Customer Con</label>
+                    <input type="text" class="form-control" [(ngModel)]="customerTemp.contact" id="recipient-name">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Close</button>
+                <button type="button" class="btn btn-primary" (click)="saveCustomer()" data-bs-dismiss="modal"
+                    style="background-color: goldenrod; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update
+                    Customer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
    
